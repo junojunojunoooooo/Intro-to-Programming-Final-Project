@@ -7,6 +7,11 @@ public class Main {
         System.out.println(player.getStr());
         System.out.println(player.getIntel());
 
+        Monster monster = new Monster();
+        System.out.println(monster.getHp());
+        System.out.println(monster.getDex());
+        System.out.println(monster.getStr());
+        System.out.println(monster.getIntel());
 
     }
 }

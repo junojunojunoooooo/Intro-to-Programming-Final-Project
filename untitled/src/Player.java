@@ -32,4 +32,9 @@ public class Player {
     public int getGold() {
         return gold;
     }
+
+    public void gainGold(int gain) {
+        gold += gain;
+    }
+
 }

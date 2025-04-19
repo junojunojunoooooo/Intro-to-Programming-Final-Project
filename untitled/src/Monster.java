@@ -26,4 +26,9 @@ public class Monster {
     public int getIntel() {
         return intel;
     }
+
+    public int takeDamage(int strength) {
+        hp -= strength/3;
+        return hp;
+    }
 }

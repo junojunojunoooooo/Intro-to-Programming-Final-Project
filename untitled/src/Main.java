@@ -2,8 +2,13 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public void move () {
 
+    }
+
+    public static void main(String[] args) {
+        int x = 5;
+        int y = 5;
 
         ArrayList<ArrayList<Room>> grid = new ArrayList<>();
 
@@ -14,7 +19,7 @@ public class Main {
             }
             grid.add(row);
         }
-        
+
 
         }
     }

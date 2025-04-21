@@ -37,4 +37,13 @@ public class Player {
         gold += gain;
     }
 
+    public void heal() {
+        hp = 20;
+    }
+
+    public int takeDamage(int strength) {
+        hp -= strength/3;
+        return hp;
+    }
+
 }

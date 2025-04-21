@@ -31,4 +31,5 @@ public class Monster {
         hp -= strength/3;
         return hp;
     }
+
 }

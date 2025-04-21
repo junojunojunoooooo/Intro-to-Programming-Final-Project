@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public void move () {
-
-    }
-
     public static void main(String[] args) {
+        // sets current state: 0 = move, 1 = fight, 2 = sleep/search
+        int state = 0;
+
         int x = 5;
         int y = 5;
 
@@ -19,6 +18,7 @@ public class Main {
             }
             grid.add(row);
         }
+
 
 
         }

@@ -42,7 +42,9 @@ public class Player {
     }
 
     public int takeDamage(int strength) {
-        hp -= strength/3;
+        hp -= (int) strength/3;
+
+
         return hp;
     }
 

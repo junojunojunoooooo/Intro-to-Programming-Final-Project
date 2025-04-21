@@ -7,8 +7,8 @@ public class Room {
     private int y;
 
     public Room(int row, int column) {
-        // sets gold from 1-5
-        this.Gold = ((int) (Math.random() * 5) + 1);
+        // sets gold to a value between 2-5
+        this.Gold = ((int) (Math.random() * 5) + 2);
 
         // flips a coin to decide if a monster is present
         int MonsterGen = ((int) (Math.random() * 2) + 1);
@@ -22,7 +22,6 @@ public class Room {
         int BlockedGen = ((int) (Math.random() * 8) + 1);
         if (BlockedGen == 8) {
             this.Blocked = true;
-            this.npc = new Monster();
         }
         else this.Blocked = false;
 
@@ -30,6 +29,7 @@ public class Room {
         this.y = row;
         this.x = column;
     }
+
     public int getGold() {
         return Gold;
     }
@@ -54,23 +54,33 @@ public class Room {
         return npc;
     }
 
-    // adds the gold in the room to the player's gold count, then sets the room's gold to zero to avoid double-dipping
     public void search(Player player) {
         int roll = ((int) (Math.random() * 20) + 1);
 
+        // rolls a d20, player gets gold if they roll below their intelligence
         if (roll <= player.getIntel()) {
-            player.gainGold(Gold);
-            Gold = 0; }
+            player.gainGold(Gold);}
+
+        // sets gold to zero to avoid double-dipping
+        Gold = 0;
     }
 
     public void sleep(Player player) {
+        // heals the player to max and clears the room's gold (so you have to pick between searching and sleeping)
         player.heal();
         Gold = 0;
+
+        // rolls a d6 die, spawns a new monster if it rolls a six
+        int roll = ((int) (Math.random() * 6) + 1);
+
+        if (roll == 6) {
+            this.npc = new Monster(); }
     }
 
     public void playerAttacks(Player player) {
         int roll = ((int) (Math.random() * 20) + 1);
 
+        // player attacks if they roll above the enemy's dexterity
         if (roll >= npc.getDex()) {
             npc.takeDamage(player.getStr()); }
     }
@@ -78,15 +88,20 @@ public class Room {
     public void monsterAttacks(Player player) {
         int roll = ((int) (Math.random() * 20) + 1);
 
+        // monster attacks if it rolls above the player's dexterity
         if (roll >= player.getDex()) {
             player.takeDamage(npc.getStr()); }
     }
 
-    public void run(Player player) {
-        int roll = ((int) (Math.random() * 6) + 1);
+    public int run(Player player) {
+        int roll = ((int) (Math.random() * 20) + 1);
 
-        if (roll == 6) {
+        // monster attacks if it rolls below its intelligence
+        if (roll <= npc.getIntel()) {
             player.takeDamage(npc.getStr()); }
+
+        // changes the state to moving
+        return 0;
     }
 
 }

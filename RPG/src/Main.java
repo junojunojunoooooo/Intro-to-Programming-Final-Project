@@ -19,7 +19,7 @@ public class Main {
             grid.add(row);
         }
 
-
+        
 
         }
     }

@@ -54,7 +54,7 @@ public class Room {
         return npc;
     }
 
-    public void search(Player player) {
+    public int search(Player player) {
         int roll = ((int) (Math.random() * 20) + 1);
 
         // rolls a d20, player gets gold if they roll below their intelligence
@@ -63,18 +63,24 @@ public class Room {
 
         // sets gold to zero to avoid double-dipping
         Gold = 0;
+
+        // changes to a moving state
+        return 0;
     }
 
-    public void sleep(Player player) {
+    public int sleep(Player player) {
         // heals the player to max and clears the room's gold (so you have to pick between searching and sleeping)
         player.heal();
         Gold = 0;
 
-        // rolls a d6 die, spawns a new monster if it rolls a six
+        // rolls a d6 die, spawns a new monster and starts a fight if it rolls a six
         int roll = ((int) (Math.random() * 6) + 1);
 
         if (roll == 6) {
-            this.npc = new Monster(); }
+            this.npc = new Monster();
+            return 1; }
+        // returns a moving state if no monster attacks
+        else return 0;
     }
 
     public void playerAttacks(Player player) {
@@ -100,7 +106,7 @@ public class Room {
         if (roll <= npc.getIntel()) {
             player.takeDamage(npc.getStr()); }
 
-        // changes the state to moving
+        // returns a moving state
         return 0;
     }
 

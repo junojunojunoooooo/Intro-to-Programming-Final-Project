@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label fx:id="test" text="Test" />
+      <Button mnemonicParsing="false" onAction="#onUpBottonClick" text="Up" />
+      <Button fx:id="Down" mnemonicParsing="false" onAction="#OnDownButtonClick" text="Down" />
+      <Button fx:id="Left" mnemonicParsing="false" onAction="#OnLeftButtonClick" text="Left" />
+      <Button fx:id="Right" mnemonicParsing="false" onAction="#OnRightButtonClick" text="Right" />
+      <Button mnemonicParsing="false" text="Fight" />
+      <Button mnemonicParsing="false" text="Sleep" />
+      <Button mnemonicParsing="false" text="Run" />
+   </children>
+</VBox>

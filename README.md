@@ -1,2 +1,3 @@
-Need: Sleep, fight, run, UI, moving, blocking rooms, 
-Have: Map, Rooms, NPC, player, search, 
+Need: Fight, UI, moving, blocking rooms, 
+
+Have: Map, Rooms, NPC, player, search, sleep, run

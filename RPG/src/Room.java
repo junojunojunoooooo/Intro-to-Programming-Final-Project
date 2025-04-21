@@ -30,29 +30,17 @@ public class Room {
         this.x = column;
     }
 
-    public int getGold() {
-        return Gold;
-    }
+    public int getGold() { return Gold; }
 
-    public boolean isMonsterPresent() {
-        return MonsterPresent;
-    }
+    public boolean isMonsterPresent() { return MonsterPresent; }
 
-    public boolean isBlocked() {
-        return Blocked;
-    }
+    public boolean isBlocked() { return Blocked; }
 
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
 
-    public int getY() {
-        return y;
-    }
+    public int getY() { return y; }
 
-    public Monster getNpc() {
-        return npc;
-    }
+    public Monster getNpc() { return npc; }
 
     public int search(Player player) {
         int roll = ((int) (Math.random() * 20) + 1);

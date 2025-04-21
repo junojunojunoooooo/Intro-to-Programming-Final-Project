@@ -13,37 +13,25 @@ public class Player {
         this.gold = 0;
     }
 
-    public int getHp() {
-        return hp;
-    }
+    public int getHp() { return hp; }
 
-    public int getStr() {
-        return str;
-    }
+    public int getStr() { return str; }
 
-    public int getDex() {
-        return dex;
-    }
+    public int getDex() { return dex; }
 
-    public int getIntel() {
-        return intel;
-    }
+    public int getIntel() { return intel; }
 
-    public int getGold() {
-        return gold;
-    }
+    public int getGold() { return gold; }
 
-    public void gainGold(int gain) {
-        gold += gain;
-    }
+    public void gainGold(int gain) { gold += gain; }
 
-    public void heal() {
-        hp = 20;
-    }
+    public void heal() { hp = 20; }
 
     public int takeDamage(int strength) {
-        hp -= (int) strength/3;
-
+        // rounds up to one damage taken if needed, otherwise performs regular damage calculation
+        if ( (int) strength/3 < 1) {
+            hp --;
+        } else hp -= (int) strength/3;
 
         return hp;
     }

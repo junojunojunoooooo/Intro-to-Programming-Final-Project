@@ -11,21 +11,13 @@ public class Monster {
         this.intel = this.hp * 2;
     }
 
-    public int getHp() {
-        return hp;
-    }
+    public int getHp() { return hp; }
 
-    public int getStr() {
-        return str;
-    }
+    public int getStr() { return str; }
 
-    public int getDex() {
-        return dex;
-    }
+    public int getDex() { return dex; }
 
-    public int getIntel() {
-        return intel;
-    }
+    public int getIntel() { return intel; }
 
     public int takeDamage(int strength) {
         hp -= (int) strength/3;

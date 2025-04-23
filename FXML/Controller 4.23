@@ -1,0 +1,146 @@
+package com.example.whywontyouwork;
+
+import com.example.whywontyouwork.classes.Room;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
+
+public class HelloController {
+    int MONEY = 0;
+    int PlayerHealthValue = 20;
+    int MonsterHealthValue = 20;
+    int x = 0;
+    int y = 0;
+    @FXML
+    public Label FART;
+    @FXML
+    private Label GOLD;
+    @FXML
+    private Label HEALTH;
+
+    @FXML
+    private Label WHATdo;
+    @FXML
+    private Label MHealth;
+    @FXML
+    private Label ErrorLabel;
+    @FXML
+    private Label ypos;
+    @FXML
+    private Label xpos;
+
+    Room room = new Room(0,0);
+    @FXML
+    public void onButtonSearch() {
+        WHATdo.setText("SEARCH");
+        int roll = ((int) (Math.random() * 20) + 1);
+        MONEY = MONEY + roll;
+        GOLD.setText(String.valueOf(MONEY));
+        FART.setText("You have found " + roll + " Gold");
+    }
+
+    @FXML
+    public void onButtonSleep() {
+        WHATdo.setText("SLEEP");
+        PlayerHealthValue = 20;
+        HEALTH.setText(String.valueOf(PlayerHealthValue));
+        int roll = ((int) (Math.random() * 6) + 1);
+        if (roll == 6) {
+            FART.setText("A monster has spawned");
+            MonsterHealthValue = 20;
+            MHealth.setText(String.valueOf(MonsterHealthValue));
+        } else {
+            FART.setText("No monster has spawned");
+            MHealth.setText("No monster present");
+        }
+    }
+
+    @FXML
+    public void onButtonRun() {
+        WHATdo.setText("RUN");
+        int runroll = ((int) (Math.random() * 4) + 1);
+    while (y < 0 || runroll == 1) {
+    }
+    }
+
+    @FXML
+    public void onButtonFight() {
+        int Proll = ((int) (Math.random() * 20) + 1);
+        if (Proll >= MonsterHealthValue) {
+            MonsterHealthValue = 0;
+            MHealth.setText(String.valueOf(MonsterHealthValue));
+            FART.setText("You did " + Proll + " damage. The monster is dead");
+
+        }
+        else{
+            int Mroll = ((int) (Math.random() * 20) + 1);
+            MonsterHealthValue = MonsterHealthValue - Proll;
+            MHealth.setText(String.valueOf(MonsterHealthValue));
+            if (Mroll >= PlayerHealthValue) {
+                PlayerHealthValue = 0;
+                HEALTH.setText(String.valueOf(PlayerHealthValue));
+                ErrorLabel.setText("You have lost.");}
+            else {PlayerHealthValue = PlayerHealthValue - Mroll;
+            HEALTH.setText(String.valueOf(PlayerHealthValue));
+            FART.setText("You did " + Proll + " damage to the monster. The monster did " + Mroll + " damage to you");}
+        }
+
+}
+
+
+
+    @FXML
+    public void onButtonUp() {
+        WHATdo.setText("Up");
+        y--;
+        if (y < 0) {
+            y++;
+            FART.setText("There is no room there.");
+        }
+        else{
+        ypos.setText(String.valueOf(y));
+        FART.setText("You have moved up");
+        }
+    }
+
+    @FXML
+    public void onButtonDown() {
+        WHATdo.setText("Down");
+        y++;
+        if (y > 9) {
+            y--;
+            FART.setText("There is no room there.");
+        }
+        else{
+        ypos.setText(String.valueOf(y));
+            FART.setText("You have moved down");}
+    }
+
+    @FXML
+    public void onButtonLeft() {
+        WHATdo.setText("Left");
+        x++;
+        if (x > 9) {
+            x--;
+            FART.setText("There is no room there.");
+        }
+        else{
+        xpos.setText(String.valueOf(x));
+            FART.setText("You have moved left");}
+    }
+
+    @FXML
+    public void onButtonRight() {
+        WHATdo.setText("Right");
+        x--;
+        if (x < 0) {
+            x++;
+            FART.setText("There is no room there.");
+        }
+        else{
+        xpos.setText(String.valueOf(x));
+            FART.setText("You have moved right");}
+    }
+
+}

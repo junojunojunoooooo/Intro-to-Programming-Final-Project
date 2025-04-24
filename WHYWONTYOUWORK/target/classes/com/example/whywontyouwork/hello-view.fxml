@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.whywontyouwork.HelloController">
+   <children>
+      <GridPane layoutX="321.0" layoutY="274.0" prefHeight="71.0" prefWidth="265.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#onButtonLeft" text="Left" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#onButtonUp" text="Up" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonRight" text="Right" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#onButtonDown" text="Down" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="35.0" layoutY="295.0" prefHeight="30.0" prefWidth="241.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#onButtonSleep" text="Sleep" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonFight" text="Fight" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonRun" text="Run" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonSearch" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <Label fx:id="FART" alignment="TOP_LEFT" layoutX="420.0" layoutY="25.0" prefHeight="221.0" prefWidth="166.0" wrapText="true" />
+      <Text layoutX="44.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gold:" wrappingWidth="106.80337524414062" />
+      <Text layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health:" wrappingWidth="113.93228149414062" />
+      <Label fx:id="GOLD" layoutX="87.0" layoutY="16.0" text="___" />
+      <Label fx:id="HEALTH" layoutX="87.0" layoutY="33.0" text="20" />
+      <Label fx:id="WHATdo" layoutX="144.0" layoutY="351.0" />
+      <Text layoutX="279.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monster Health:" />
+      <Label fx:id="MHealth" layoutX="307.0" layoutY="41.0" text="__" />
+
+      <Label fx:id="ErrorLabel" layoutX="50.0" layoutY="157.0" />
+      <Text layoutX="301.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x pos:" />
+      <Text layoutX="364.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="y pos:" />
+      <Label layoutX="341.0" layoutY="351.0" text="5" fx:id="xpos" />
+      <Label fx:id="ypos" layoutX="395.0" layoutY="359.0" text="5" />
+      <Label layoutX="21.0" layoutY="85.0" text="Str:" />
+      <Label layoutX="21.0" layoutY="102.0" text="Dex:" />
+      <Label layoutX="21.0" layoutY="119.0" text="Int:" />
+      <Label fx:id="STR" layoutX="50.0" layoutY="85.0" />
+      <Label fx:id="DEX" layoutX="50.0" layoutY="102.0" />
+      <Label fx:id="INT" layoutX="44.0" layoutY="119.0" />
+      <Label fx:id="StateLabel" layoutX="29.0" layoutY="58.0" text="You must move." />
+   </children>
+</Pane>

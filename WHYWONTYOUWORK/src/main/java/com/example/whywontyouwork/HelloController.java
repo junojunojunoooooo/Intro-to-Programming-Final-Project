@@ -57,48 +57,59 @@ public class HelloController {
     public void onButtonSearch() {
         // search button YAYYYYY (if I remove this, the function bricks in starting room)
         WHATdo.setText("SEARCH");
-        if (state == 2){
-        if (grid.get(x).get(y).wasActionTaken() == false){
-            int goldGain = (int) (Math.random() * 5) + 2;
-            FART.setText("You have searched and gained " + goldGain + " gold.");
-            grid.get(y).get(x).action();
-            player.gainGold(goldGain);
-            GOLD.setText(String.valueOf(player.getGold()));
+        if (x == 5 && y == 5) {
+            FART.setText("Cannot sleep or search in the entry room. Please move!");
             state = 0;
-            StateLabel.setText("You must move.");
+        } else {
+            if (state == 2) {
+                if (grid.get(x).get(y).wasActionTaken() == false) {
+                    int goldGain = (int) (Math.random() * 5) + 2;
+                    FART.setText("You have searched and gained " + goldGain + " gold.");
+                    grid.get(y).get(x).action();
+                    player.gainGold(goldGain);
+                    GOLD.setText(String.valueOf(player.getGold()));
+                    state = 0;
+                    StateLabel.setText("You must move.");
+                }
+                GOLD.setText(String.valueOf(player.getGold()));
+            } else {
+                FART.setText("Please select an appropriate action.");
+            }
         }
-        GOLD.setText(String.valueOf(player.getGold()));}
-                    else{
-                        FART.setText("Please select an appropriate action.");}
     }
 
     @FXML
     public void onButtonSleep() {
         WHATdo.setText("SLEEP");
-        if (state == 2) {
-            if (!grid.get(x).get(y).wasActionTaken()) {
-                grid.get(y).get(x).sleep(player);
-                HEALTH.setText(String.valueOf(player.getHp()));
-                grid.get(y).get(x).action();
 
-                // checks if a monster spawned and notifies the player
-                if (grid.get(y).get(x).isMonsterPresent()) {
-                    FART.setText("You slept, but a monster found you!");
-                    state = 1;
-                    StateLabel.setText("You must fight or run.");
-                    MHealth.setText(String.valueOf(grid.get(y).get(x).getNpc().getHp()));
+        if (x == 5 && y == 5) {
+            FART.setText("Cannot sleep or search in the entry room. Please move!");
+            state = 0;
+        } else {
+            if (state == 2) {
+                if (!grid.get(x).get(y).wasActionTaken()) {
+                    grid.get(y).get(x).sleep(player);
+                    HEALTH.setText(String.valueOf(player.getHp()));
+                    grid.get(y).get(x).action();
+
+                    // checks if a monster spawned and notifies the player
+                    if (grid.get(y).get(x).isMonsterPresent()) {
+                        FART.setText("You slept, but a monster found you!");
+                        state = 1;
+                        StateLabel.setText("You must fight or run.");
+                        MHealth.setText(String.valueOf(grid.get(y).get(x).getNpc().getHp()));
+                    } else {
+                        FART.setText("You slept safely.");
+                        state = 0;
+                        StateLabel.setText("You must move.");
+                    }
                 } else {
-                    FART.setText("You slept safely.");
-                    state = 0;
-                    StateLabel.setText("You must move.");
+                    FART.setText("Go to a different room to search or sleep!");
                 }
             } else {
-                FART.setText("Go to a different room to search or sleep!");
+                FART.setText("Please select an appropriate action.");
             }
-
         }
-        else {
-        FART.setText("Please select an appropriate action.");}
     }
 
     @FXML

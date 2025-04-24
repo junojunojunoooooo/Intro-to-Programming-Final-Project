@@ -39,10 +39,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#onButtonSleep" text="Sleep" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#onButtonFight" text="Fight" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#onButtonRun" text="Run" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#onButtonSearch" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonSleep" text="Sleep" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonFight" text="Fight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onButtonSearch" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button alignment="CENTER" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#onButtonRun" text="Run" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <Label fx:id="FART" alignment="TOP_LEFT" layoutX="420.0" layoutY="25.0" prefHeight="221.0" prefWidth="166.0" wrapText="true" />
@@ -55,10 +55,10 @@
       <Label fx:id="MHealth" layoutX="307.0" layoutY="41.0" text="__" />
 
       <Label fx:id="ErrorLabel" layoutX="50.0" layoutY="157.0" />
-      <Text layoutX="301.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x pos:" />
-      <Text layoutX="364.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="y pos:" />
-      <Label layoutX="341.0" layoutY="351.0" text="5" fx:id="xpos" />
-      <Label fx:id="ypos" layoutX="395.0" layoutY="359.0" text="5" />
+      <Text layoutX="438.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x pos:" />
+      <Text layoutX="503.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="y pos:" />
+      <Label layoutX="476.0" layoutY="368.0" text="5" fx:id="xpos" />
+      <Label fx:id="ypos" layoutX="534.0" layoutY="368.0" text="5" />
       <Label layoutX="21.0" layoutY="85.0" text="Str:" />
       <Label layoutX="21.0" layoutY="102.0" text="Dex:" />
       <Label layoutX="21.0" layoutY="119.0" text="Int:" />
